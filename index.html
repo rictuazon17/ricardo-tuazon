@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ricardo Tuazon Jr. | Technical Support Engineer & Systems Administrator</title>
+<meta name="description" content="Ricardo Tuazon Jr. - Technical Support Engineer with 19+ years experience in enterprise IT, systems administration, and NOC operations.">
+<meta name="keywords" content="Technical Support Engineer, Systems Administrator, ITIL, Azure, Windows Server, Active Directory, NOC, Service Desk">
+<meta name="author" content="Ricardo Tuazon Jr.">
+<meta property="og:title" content="Ricardo Tuazon Jr. | Technical Support Engineer">
+<meta property="og:description" content="19+ years of enterprise IT excellence. Tier II/III support, systems administration, and infrastructure management.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="260787020_626036428552502_2244792576909067125_n.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+  --primary: #1e3a5f; --primary-light: #2c5282; --accent: #d4a843;
+  --accent-light: #e8c86a; --dark: #0f172a; --text: #334155;
+  --text-light: #64748b; --bg: #f8fafc; --card-bg: #ffffff;
+  --border: #e2e8f0; --success: #059669;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+  --transition-fast: 0.15s ease; --transition: 0.3s ease; --transition-slow: 0.5s ease;
+}
+[data-theme="dark"] {
+  --primary: #3b82f6; --primary-light: #60a5fa; --accent: #fbbf24;
+  --accent-light: #fcd34d; --dark: #f1f5f9; --text: #cbd5e1;
+  --text-light: #94a3b8; --bg: #0f172a; --card-bg: #1e293b;
+  --border: #334155; --success: #34d399;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text);
+  line-height: 1.7; overflow-x: hidden;
+  transition: background var(--transition-slow), color var(--transition-slow);
+}
+::selection { background: var(--accent); color: var(--dark); }
+
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--primary-light));
+  z-index: 10000; width: 0%; transition: width 0.1s linear;
+}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+  min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+.particles {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  overflow: hidden; z-index: 0; pointer-events: none;
+}
+.particle {
+  position: absolute; width: 4px; height: 4px;
+  background: rgba(212, 168, 67, 0.3); border-radius: 50%;
+  animation: float 15s infinite linear;
+}
+@keyframes float {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 1; } 90% { opacity: 1; }
+  100% { transform: translateY(-10vh) translateX(50px); opacity: 0; }
+}
+
+.hero-container {
+  max-width: 1200px; margin: 0 auto; padding: 2rem;
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem;
+  align-items: center; position: relative; z-index: 1;
+}
+.hero-image-wrapper { position: relative; display: flex; justify-content: center; animation: fadeInUp 1s ease 0.3s both; }
+.hero-image {
+  width: 320px; height: 320px; border-radius: 50%; object-fit: cover;
+  border: 4px solid var(--accent); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+  transition: all var(--transition); animation: subtlePulse 4s ease-in-out infinite;
+}
+.hero-image:hover { transform: scale(1.05) rotate(2deg); box-shadow: 0 30px 60px -12px rgba(212,168,67,0.4); }
+@keyframes subtlePulse {
+  0%, 100% { box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+  50% { box-shadow: 0 25px 50px -12px rgba(212,168,67,0.3); }
+}
+.hero-image-ring {
+  position: absolute; width: 340px; height: 340px; border-radius: 50%;
+  border: 2px solid rgba(212,168,67,0.3); top: 50%; left: 50%;
+  transform: translate(-50%, -50%); animation: pulse 3s infinite;
+}
+.hero-image-ring:nth-child(2) { width: 380px; height: 380px; border-color: rgba(212,168,67,0.15); animation-delay: 1s; }
+@keyframes pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+  50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.8; }
+}
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes countUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.hero-content { animation: fadeInRight 1s ease 0.5s both; }
+.hero-content h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #fff; margin-bottom: 0.5rem; line-height: 1.1; }
+.hero-content .subtitle { font-size: 1.25rem; color: var(--accent-light); font-weight: 500; margin-bottom: 1.5rem; letter-spacing: 0.5px; min-height: 1.6em; }
+.hero-content .summary { color: rgba(255,255,255,0.85); font-size: 1.05rem; margin-bottom: 2rem; line-height: 1.8; }
+
+.hero-stats { display: flex; gap: 2rem; margin-bottom: 2rem; }
+.stat-item { text-align: center; animation: countUp 0.8s ease both; }
+.stat-item:nth-child(1) { animation-delay: 0.8s; }
+.stat-item:nth-child(2) { animation-delay: 1s; }
+.stat-item:nth-child(3) { animation-delay: 1.2s; }
+.stat-number { font-size: 2rem; font-weight: 800; color: var(--accent); display: block; transition: transform var(--transition); }
+.stat-item:hover .stat-number { transform: scale(1.1); }
+.stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 1px; }
+
+.hero-contact { display: flex; flex-wrap: wrap; gap: 1rem; }
+.contact-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none;
+  font-weight: 600; font-size: 0.9rem; transition: all var(--transition);
+  position: relative; overflow: hidden;
+}
+.contact-btn::before {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  width: 0; height: 0; border-radius: 50%; background: rgba(255,255,255,0.2);
+  transform: translate(-50%, -50%); transition: width 0.6s ease, height 0.6s ease;
+}
+.contact-btn:hover::before { width: 300px; height: 300px; }
+.contact-btn.primary { background: var(--accent); color: var(--dark); }
+.contact-btn.primary:hover { background: var(--accent-light); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(212,168,67,0.4); }
+.contact-btn.secondary { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(10px); }
+.contact-btn.secondary:hover { background: rgba(255,255,255,0.2); transform: translateY(-3px); border-color: var(--accent); }
+.contact-btn i, .contact-btn span { position: relative; z-index: 1; }
+
+.scroll-indicator {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  color: rgba(255,255,255,0.6); font-size: 0.8rem;
+  animation: bounce 2s infinite; cursor: pointer; z-index: 2;
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-10px); }
+  60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1rem 2rem;
+  transition: all var(--transition);
+}
+nav.scrolled { background: rgba(15,23,42,0.95); backdrop-filter: blur(20px); box-shadow: var(--shadow-lg); padding: 0.75rem 2rem; }
+[data-theme="dark"] nav.scrolled { background: rgba(15,23,42,0.98); }
+.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #fff; font-weight: 700; transition: transform var(--transition); }
+.nav-logo:hover { transform: scale(1.05); }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: color var(--transition); position: relative; }
+.nav-links a:hover { color: var(--accent); }
+.nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width var(--transition); }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.nav-links a.active { color: var(--accent); }
+
+.theme-toggle {
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff;
+  width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all var(--transition); font-size: 1rem;
+}
+.theme-toggle:hover { background: var(--accent); color: var(--dark); transform: rotate(180deg); }
+
+.mobile-menu-btn { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; padding: 0.5rem; }
+.mobile-menu {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15,23,42,0.98);
+  z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+  opacity: 0; visibility: hidden; transition: all var(--transition);
+}
+.mobile-menu.active { opacity: 1; visibility: visible; }
+.mobile-menu a { color: #fff; text-decoration: none; font-size: 1.5rem; font-weight: 600; transition: color var(--transition); }
+.mobile-menu a:hover { color: var(--accent); }
+.mobile-menu-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+
+section { padding: 5rem 2rem; }
+.section-container { max-width: 1200px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 3rem; }
+.section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--dark); margin-bottom: 0.5rem; transition: color var(--transition-slow); }
+.section-header .section-line { width: 60px; height: 4px; background: var(--accent); margin: 0 auto; border-radius: 2px; transition: width var(--transition); }
+.section-header:hover .section-line { width: 100px; }
+.section-header p { color: var(--text-light); margin-top: 1rem; font-size: 1.1rem; transition: color var(--transition-slow); }
+
+.experience { background: var(--card-bg); transition: background var(--transition-slow); }
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, var(--accent), var(--primary)); border-radius: 3px; }
+.timeline-item { position: relative; padding-bottom: 3rem; padding-left: 2.5rem; opacity: 0; transform: translateX(-30px); transition: all 0.6s ease; }
+.timeline-item.visible { opacity: 1; transform: translateX(0); }
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-dot { position: absolute; left: -2.5rem; top: 0.5rem; width: 16px; height: 16px; background: var(--accent); border-radius: 50%; border: 3px solid var(--card-bg); box-shadow: 0 0 0 3px var(--accent); transition: all var(--transition); cursor: pointer; }
+.timeline-dot:hover { transform: scale(1.3); box-shadow: 0 0 0 6px rgba(212,168,67,0.3); }
+.timeline-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: all var(--transition); position: relative; overflow: hidden; }
+.timeline-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 0; background: linear-gradient(to bottom, var(--accent), var(--primary-light)); transition: height var(--transition-slow); }
+.timeline-card:hover::before { height: 100%; }
+.timeline-card:hover { box-shadow: var(--shadow-xl); transform: translateX(5px) translateY(-3px); border-color: var(--accent); }
+.timeline-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+.timeline-title { font-size: 1.3rem; font-weight: 700; color: var(--dark); transition: color var(--transition-slow); }
+.timeline-company { color: var(--primary-light); font-weight: 600; font-size: 1rem; }
+.timeline-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.timeline-badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.85rem; background: var(--bg); border-radius: 50px; font-size: 0.8rem; color: var(--text); font-weight: 500; transition: all var(--transition); cursor: default; }
+.timeline-badge:hover { background: var(--accent); color: var(--dark); transform: translateY(-2px); }
+.timeline-badge i { color: var(--accent); font-size: 0.75rem; transition: color var(--transition); }
+.timeline-badge:hover i { color: var(--dark); }
+.timeline-desc { color: var(--text); margin-bottom: 1.5rem; font-size: 0.95rem; transition: color var(--transition-slow); }
+.achievements-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary); font-weight: 700; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+.achievements-list { list-style: none; }
+.achievements-list li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--text); font-size: 0.92rem; transition: all var(--transition); }
+.achievements-list li:hover { padding-left: 1.8rem; color: var(--dark); }
+.achievements-list li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--success); font-size: 0.8rem; top: 0.6rem; transition: transform var(--transition); }
+.achievements-list li:hover::before { transform: scale(1.3); }
+
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+.skill-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: all var(--transition); position: relative; overflow: hidden; }
+.skill-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--primary)); transition: width var(--transition-slow); }
+.skill-card:hover::after { width: 100%; }
+.skill-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); border-color: var(--accent); }
+.skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+.skill-name { font-weight: 600; color: var(--dark); font-size: 1rem; transition: color var(--transition-slow); }
+.skill-level { font-size: 0.8rem; padding: 0.2rem 0.6rem; border-radius: 50px; font-weight: 600; transition: all var(--transition); }
+.skill-level.expert { background: #d1fae5; color: var(--success); }
+[data-theme="dark"] .skill-level.expert { background: rgba(52,211,153,0.2); }
+.skill-level.advanced { background: #dbeafe; color: var(--primary-light); }
+[data-theme="dark"] .skill-level.advanced { background: rgba(96,165,250,0.2); }
+.skill-level.intermediate { background: #fef3c7; color: #b45309; }
+[data-theme="dark"] .skill-level.intermediate { background: rgba(251,191,36,0.2); }
+.skill-bar { height: 8px; background: var(--bg); border-radius: 4px; overflow: hidden; position: relative; }
+.skill-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--primary), var(--accent)); width: 0; transition: width 1.5s ease; position: relative; }
+.skill-bar-fill::after { content: ''; position: absolute; top: 0; right: 0; width: 20px; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3)); animation: shimmer 2s infinite; }
+@keyframes shimmer { 0% { transform: translateX(-20px); } 100% { transform: translateX(20px); } }
+
+.certifications { background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%); color: #fff; position: relative; overflow: hidden; }
+.certifications::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(212,168,67,0.1) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+.certifications .section-header h2 { color: #fff; }
+.certifications .section-header p { color: rgba(255,255,255,0.7); }
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.cert-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 2rem; transition: all var(--transition); position: relative; overflow: hidden; backdrop-filter: blur(10px); }
+.cert-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-8px) scale(1.02); border-color: var(--accent); box-shadow: 0 25px 50px rgba(0,0,0,0.3); }
+.cert-card.featured { border: 2px solid var(--accent); background: rgba(212,168,67,0.1); animation: glow 3s ease-in-out infinite; }
+@keyframes glow { 0%, 100% { box-shadow: 0 0 20px rgba(212,168,67,0.2); } 50% { box-shadow: 0 0 40px rgba(212,168,67,0.4); } }
+.cert-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem; transition: transform var(--transition); }
+.cert-card:hover .cert-icon { transform: scale(1.2) rotate(5deg); }
+.cert-name { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+.cert-issuer { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 0.5rem; }
+.cert-date { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: var(--accent-light); }
+.cert-status { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; margin-top: 0.75rem; transition: all var(--transition); }
+.cert-card:hover .cert-status { transform: scale(1.05); }
+.cert-status.completed { background: rgba(5,150,105,0.2); color: #34d399; }
+.cert-status.in-progress { background: rgba(212,168,67,0.2); color: var(--accent-light); }
+.cert-status.planned { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); }
+
+.recommendation { background: var(--card-bg); transition: background var(--transition-slow); }
+.rec-card { max-width: 800px; margin: 0 auto; background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 3rem; position: relative; box-shadow: var(--shadow-xl); transition: all var(--transition); }
+.rec-card:hover { transform: translateY(-5px); box-shadow: 0 30px 60px rgba(0,0,0,0.12); }
+.rec-quote { font-size: 4rem; color: var(--accent); opacity: 0.3; line-height: 1; position: absolute; top: 1.5rem; left: 2rem; font-family: 'Playfair Display', serif; transition: all var(--transition); }
+.rec-card:hover .rec-quote { opacity: 0.5; transform: scale(1.1); }
+.rec-text { font-size: 1.1rem; color: var(--text); line-height: 1.9; margin-bottom: 2rem; position: relative; z-index: 1; font-style: italic; transition: color var(--transition-slow); }
+.rec-author { display: flex; align-items: center; gap: 1rem; border-top: 1px solid var(--border); padding-top: 1.5rem; transition: border-color var(--transition-slow); }
+.rec-avatar { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.5rem; font-weight: 700; transition: all var(--transition); }
+.rec-card:hover .rec-avatar { transform: scale(1.1) rotate(5deg); }
+.rec-info h4 { color: var(--dark); font-size: 1.1rem; margin-bottom: 0.2rem; transition: color var(--transition-slow); }
+.rec-info p { color: var(--text-light); font-size: 0.9rem; transition: color var(--transition-slow); }
+.rec-info .rec-company { color: var(--primary-light); font-weight: 600; }
+
+.project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: all var(--transition); position: relative; overflow: hidden; }
+.project-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(212,168,67,0.05), transparent); transition: left 0.7s ease; }
+.project-card:hover::before { left: 100%; }
+.project-card:hover { box-shadow: var(--shadow-xl); transform: translateY(-8px); border-color: var(--accent); }
+.project-title { font-size: 1.3rem; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem; transition: color var(--transition-slow); }
+.project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+.project-tag { padding: 0.3rem 0.8rem; background: var(--bg); border-radius: 50px; font-size: 0.8rem; color: var(--primary); font-weight: 500; transition: all var(--transition); cursor: default; }
+.project-tag:hover { background: var(--accent); color: var(--dark); transform: translateY(-2px); }
+
+.fab {
+  position: fixed; bottom: 2rem; right: 2rem; width: 56px; height: 56px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--primary-light)); color: var(--dark);
+  border: none; display: flex; align-items: center; justify-content: center;
+  font-size: 1.25rem; cursor: pointer; box-shadow: 0 8px 25px rgba(212,168,67,0.4);
+  transition: all var(--transition); z-index: 999; text-decoration: none;
+}
+.fab:hover { transform: translateY(-5px) scale(1.1); box-shadow: 0 15px 35px rgba(212,168,67,0.5); }
+.fab:active { transform: translateY(-2px) scale(0.95); }
+
+.back-to-top {
+  position: fixed; bottom: 2rem; right: 6rem; width: 50px; height: 50px; border-radius: 50%;
+  background: var(--card-bg); color: var(--text); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center; font-size: 1rem; cursor: pointer;
+  box-shadow: var(--shadow-lg); transition: all var(--transition); z-index: 999;
+  opacity: 0; visibility: hidden; transform: translateY(20px);
+}
+.back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { background: var(--accent); color: var(--dark); transform: translateY(-3px); }
+
+footer { background: var(--dark); color: #fff; padding: 3rem 2rem; text-align: center; transition: background var(--transition-slow); }
+[data-theme="dark"] footer { background: #020617; }
+.footer-content { max-width: 600px; margin: 0 auto; }
+.footer-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 0.5rem; }
+.footer-title { color: var(--accent); margin-bottom: 1.5rem; }
+.footer-social { display: flex; justify-content: center; gap: 1rem; margin-bottom: 1.5rem; }
+.footer-social a { width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: all var(--transition); position: relative; overflow: hidden; }
+.footer-social a::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%; background: var(--accent); transform: translate(-50%, -50%); transition: width 0.4s ease, height 0.4s ease; z-index: 0; }
+.footer-social a:hover::before { width: 100%; height: 100%; }
+.footer-social a:hover { color: var(--dark); transform: translateY(-3px); }
+.footer-social a i { position: relative; z-index: 1; }
+.footer-copy { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+
+.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.fade-in-left { opacity: 0; transform: translateX(-40px); transition: all 0.6s ease; }
+.fade-in-left.visible { opacity: 1; transform: translateX(0); }
+.fade-in-right { opacity: 0; transform: translateX(40px); transition: all 0.6s ease; }
+.fade-in-right.visible { opacity: 1; transform: translateX(0); }
+.scale-in { opacity: 0; transform: scale(0.9); transition: all 0.6s ease; }
+.scale-in.visible { opacity: 1; transform: scale(1); }
+
+@media (max-width: 900px) {
+  .hero-container { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+  .hero-content h1 { font-size: 2.5rem; }
+  .hero-stats { justify-content: center; }
+  .hero-contact { justify-content: center; }
+  .hero-image { width: 250px; height: 250px; }
+  .hero-image-ring { width: 270px; height: 270px; }
+  .hero-image-ring:nth-child(2) { width: 300px; height: 300px; }
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: block; }
+  .timeline { padding-left: 1.5rem; }
+  .timeline-item { padding-left: 1.5rem; }
+  .timeline-dot { left: -1.75rem; }
+  .rec-card { padding: 2rem 1.5rem; }
+  .fab { bottom: 1.5rem; right: 1.5rem; }
+  .back-to-top { bottom: 1.5rem; right: 5rem; }
+}
+@media (max-width: 600px) {
+  .hero-content h1 { font-size: 2rem; }
+  .section-header h2 { font-size: 1.8rem; }
+  .timeline-header { flex-direction: column; }
+  .hero-stats { flex-direction: column; gap: 1rem; }
+}
+@media print {
+  nav, .fab, .back-to-top, .scroll-indicator, .mobile-menu-btn { display: none !important; }
+  .hero { min-height: auto; padding: 2rem 0; }
+  section { padding: 2rem 0; page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav id="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">RT<span>.</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" class="active">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#recommendation">Recommendation</a></li>
+      <li><button class="theme-toggle" id="themeToggle" title="Toggle dark mode"><i class="fas fa-moon"></i></button></li>
+    </ul>
+    <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose"><i class="fas fa-times"></i></button>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#skills">Skills</a>
+  <a href="#certifications">Certifications</a>
+  <a href="#projects">Projects</a>
+  <a href="#recommendation">Recommendation</a>
+</div>
+
+<section class="hero" id="about">
+  <div class="particles" id="particles"></div>
+  <div class="hero-container">
+    <div class="hero-image-wrapper">
+      <div class="hero-image-ring"></div>
+      <div class="hero-image-ring"></div>
+      <img src="260787020_626036428552502_2244792576909067125_n.jpg" alt="Ricardo Tuazon Jr." class="hero-image">
+    </div>
+    <div class="hero-content">
+      <h1>Ricardo Tuazon Jr.</h1>
+      <p class="subtitle" id="typewriterSubtitle"></p>
+      <p class="summary">Technical Support Engineer with nearly <strong>19 years of experience</strong> delivering Tier II and Tier III support across enterprise banking, managed services, Network Operations Center (NOC), and web hosting environments. Skilled in troubleshooting Windows Server, Microsoft 365, Active Directory, Azure, Linux, networking, virtualization, and enterprise infrastructure while consistently meeting SLA and KPI targets.</p>
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-number" data-target="19">0</span><span class="stat-label">Years Exp.</span></div>
+        <div class="stat-item"><span class="stat-number" data-target="95">0</span><span class="stat-label">FCR Rate %</span></div>
+        <div class="stat-item"><span class="stat-number">4.9/5</span><span class="stat-label">CSAT Score</span></div>
+      </div>
+      <div class="hero-contact">
+        <a href="mailto:ric.tuazon_17@yahoo.com" class="contact-btn primary"><i class="fas fa-envelope"></i> <span>Get In Touch</span></a>
+        <a href="tel:+639158300993" class="contact-btn secondary"><i class="fas fa-phone"></i> <span>+63 915 830 0993</span></a>
+        <a href="https://www.linkedin.com/in/ricardo-t-7001a4152/" target="_blank" class="contact-btn secondary"><i class="fab fa-linkedin"></i> <span>LinkedIn</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator" onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'})">
+    <span>Scroll Down</span><i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<section class="experience" id="experience">
+  <div class="section-container">
+    <div class="section-header fade-in">
+      <h2>Professional Experience</h2>
+      <div class="section-line"></div>
+      <p>Nearly two decades of technical excellence across diverse IT environments</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <div><div class="timeline-title">Computer Technician (Freelance)</div><div class="timeline-company">Self-Employed</div></div>
+          </div>
+          <div class="timeline-meta">
+            <span class="timeline-badge"><i class="fas fa-calendar"></i> June 2020 – Present</span>
+            <span class="timeline-badge"><i class="fas fa-map-marker-alt"></i> Taytay, Rizal, Philippines</span>
+          </div>
+          <p class="timeline-desc">Provide onsite and remote IT support for residential users and small businesses, delivering end-to-end troubleshooting, repair, and preventive maintenance services.</p>
+          <div class="achievements-title"><i class="fas fa-trophy"></i> Key Achievements</div>
+          <ul class="achievements-list">
+            <li>Completed <strong>300+ desktop and laptop repair projects</strong>, resolving hardware, software, Windows OS, driver, and networking issues with a consistently high first-time repair success rate.</li>
+            <li>Successfully recovered customer data from failed hard drives, corrupted operating systems, and damaged storage devices while maintaining data integrity whenever technically possible.</li>
+            <li>Installed and configured <strong>50+ wired and wireless home and small-office networks</strong>, including routers, switches, printers, NAS devices, and shared peripherals.</li>
+            <li>Diagnosed and resolved Windows boot failures, BIOS/UEFI issues, malware infections, Microsoft Office problems, performance bottlenecks, and hardware failures.</li>
+            <li>Reduced repeat service requests by educating customers on preventive maintenance, cybersecurity awareness, backup strategies, and system optimization.</li>
+            <li>Built long-term relationships through responsive service, clear technical communication, and reliable post-service support.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <div><div class="timeline-title">Web Hosting System Administrator</div><div class="timeline-company">Outsourced</div></div>
+          </div>
+          <div class="timeline-meta">
+            <span class="timeline-badge"><i class="fas fa-calendar"></i> June 2019 – March 2020</span>
+            <span class="timeline-badge"><i class="fas fa-map-marker-alt"></i> Quezon City, Philippines</span>
+          </div>
+          <p class="timeline-desc">Provided technical support for Linux web hosting customers while maintaining high service quality and customer satisfaction.</p>
+          <div class="achievements-title"><i class="fas fa-trophy"></i> Key Achievements</div>
+          <ul class="achievements-list">
+            <li>Resolved an average of <strong>40–60 customer support tickets per day</strong> involving DNS, SSL, email, FTP, PHP, MySQL, website availability, and hosting configuration issues.</li>
+            <li>Provisioned and administered hundreds of shared hosting accounts using WHM, cPanel, CloudLinux, and WHMCS.</li>
+            <li>Maintained SLA response and resolution targets by providing prompt technical support through ticketing systems and live customer interactions.</li>
+            <li>Assisted customers with website migrations, hosting renewals, account upgrades, and service provisioning while minimizing downtime.</li>
+            <li>Collaborated with internal teams to improve customer documentation, technical processes, and overall service quality.</li>
+            <li>Earned positive customer feedback through timely issue resolution and proactive communication.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <div><div class="timeline-title">NOC Technician</div><div class="timeline-company">iSupport</div></div>
+          </div>
+          <div class="timeline-meta">
+            <span class="timeline-badge"><i class="fas fa-calendar"></i> May 2015 – May 2019</span>
+            <span class="timeline-badge"><i class="fas fa-map-marker-alt"></i> Ortigas, Pasig City, Philippines</span>
+          </div>
+          <p class="timeline-desc">Provided 24×7 operational support for enterprise infrastructure, ensuring service availability and rapid incident response.</p>
+          <div class="achievements-title"><i class="fas fa-trophy"></i> Key Achievements</div>
+          <ul class="achievements-list">
+            <li>Monitored hundreds of enterprise servers, network devices, and infrastructure components using enterprise monitoring platforms.</li>
+            <li>Responded to <strong>50+ infrastructure alerts per shift</strong>, performing initial diagnosis, incident classification, escalation, and service restoration activities.</li>
+            <li>Helped maintain <strong>99.9% service availability</strong> through proactive monitoring, rapid incident response, and effective collaboration with infrastructure teams.</li>
+            <li>Managed the complete incident lifecycle, including event monitoring, ticket creation, root cause analysis, escalation, reporting, and closure while adhering to ITIL best practices.</li>
+            <li>Collaborated with Global Infrastructure teams during critical incidents, scheduled maintenance, and change implementations to minimize operational impact.</li>
+            <li>Recommended process improvements that enhanced operational efficiency, reduced incident response times, and improved service reliability.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <div><div class="timeline-title">Service Desk III</div><div class="timeline-company">Atos</div></div>
+          </div>
+          <div class="timeline-meta">
+            <span class="timeline-badge"><i class="fas fa-calendar"></i> August 2007 – April 2015</span>
+            <span class="timeline-badge"><i class="fas fa-map-marker-alt"></i> Quezon City, Philippines</span>
+          </div>
+          <p class="timeline-desc">Provided advanced Tier III technical support for enterprise banking environments supporting mission-critical applications and infrastructure.</p>
+          <div class="achievements-title"><i class="fas fa-trophy"></i> Key Achievements</div>
+          <ul class="achievements-list">
+            <li>Resolved <strong>40–60 technical incidents daily</strong> through phone, email, remote support, and enterprise ticketing systems while consistently meeting SLA targets.</li>
+            <li>Supported thousands of banking end users across multiple branches by resolving Windows, POS, application, account access, networking, hardware, and connectivity issues.</li>
+            <li>Maintained a <strong>95% First Call Resolution (FCR) rate</strong> by accurately diagnosing and resolving technical issues without unnecessary escalation.</li>
+            <li>Achieved a <strong>4.9/5 Customer Satisfaction (CSAT) rating</strong>, consistently exceeding team averages by 14% through exceptional customer service and technical expertise.</li>
+            <li>Reduced repeat callback rates by <strong>12%</strong> by identifying root causes, documenting solutions, and educating users on preventive practices.</li>
+            <li>Served as the escalation point for complex incidents requiring coordination with infrastructure, networking, server, and field engineering teams.</li>
+            <li>Authored technical documentation and knowledge base articles that improved knowledge sharing and increased first-contact resolution across the Service Desk.</li>
+            <li>Recognized by leadership for effectively resolving high-priority production incidents while maintaining professionalism under pressure.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills" id="skills">
+  <div class="section-container">
+    <div class="section-header fade-in">
+      <h2>Technical Skills</h2>
+      <div class="section-line"></div>
+      <p>Comprehensive expertise across enterprise IT infrastructure and support</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">Technical Support</span><span class="skill-level expert">Expert</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">Enterprise Service Desk</span><span class="skill-level expert">Expert</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">Systems Administration</span><span class="skill-level expert">Expert</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">Remote Monitoring & Management</span><span class="skill-level expert">Expert</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">Root Cause Analysis</span><span class="skill-level expert">Expert</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">Incident Management</span><span class="skill-level expert">Expert</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">SLA & KPI Management</span><span class="skill-level expert">Expert</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">IT Documentation</span><span class="skill-level expert">Expert</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">Process Improvement</span><span class="skill-level expert">Expert</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">Windows Server</span><span class="skill-level advanced">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">Microsoft 365</span><span class="skill-level advanced">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">Active Directory</span><span class="skill-level advanced">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">Exchange Server</span><span class="skill-level advanced">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">Linux Administration</span><span class="skill-level advanced">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">Web Hosting</span><span class="skill-level advanced">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">Networking</span><span class="skill-level advanced">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">Endpoint Security</span><span class="skill-level advanced">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">Backup & Disaster Recovery</span><span class="skill-level advanced">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">Microsoft Azure</span><span class="skill-level intermediate">Intermediate</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-header"><span class="skill-name">PowerShell</span><span class="skill-level intermediate">Intermediate</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div></div>
+    </div>
+  </div>
+</section>
+<section class="certifications" id="certifications">
+  <div class="section-container">
+    <div class="section-header fade-in">
+      <h2>Certifications</h2>
+      <div class="section-line"></div>
+      <p>Professional credentials and ongoing development</p>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card featured fade-in">
+        <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+        <div class="cert-name">Aviatrix Certified Engineer – Multi-Cloud Network Associate</div>
+        <div class="cert-issuer">Aviatrix</div>
+        <div class="cert-date"><i class="fas fa-calendar-check"></i> Completed: April 11, 2022</div>
+        <span class="cert-status completed"><i class="fas fa-check-circle"></i> Completed</span>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-icon"><i class="fas fa-award"></i></div>
+        <div class="cert-name">ITIL 4 Foundation</div>
+        <div class="cert-issuer">AXELOS / PeopleCert</div>
+        <div class="cert-date"><i class="fas fa-spinner"></i> In Progress</div>
+        <span class="cert-status in-progress"><i class="fas fa-clock"></i> In Progress</span>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-icon"><i class="fab fa-microsoft"></i></div>
+        <div class="cert-name">Microsoft Certified: Azure Fundamentals (AZ-900)</div>
+        <div class="cert-issuer">Microsoft</div>
+        <div class="cert-date"><i class="fas fa-calendar"></i> Planned</div>
+        <span class="cert-status planned"><i class="fas fa-flag"></i> Planned</span>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-icon"><i class="fas fa-laptop-code"></i></div>
+        <div class="cert-name">CompTIA A+</div>
+        <div class="cert-issuer">CompTIA</div>
+        <div class="cert-date"><i class="fas fa-calendar"></i> Planned</div>
+        <span class="cert-status planned"><i class="fas fa-flag"></i> Planned</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="projects" id="projects">
+  <div class="section-container">
+    <div class="section-header fade-in">
+      <h2>Projects</h2>
+      <div class="section-line"></div>
+      <p>Hands-on lab work and practical implementations</p>
+    </div>
+    <div class="cert-grid">
+      <div class="project-card fade-in">
+        <div class="project-title"><i class="fas fa-server" style="color: var(--accent); margin-right: 0.5rem;"></i>Home Lab & Systems Administration</div>
+        <p style="color: var(--text); margin-bottom: 1rem; transition: color var(--transition-slow);">Built and maintained Windows Server and Linux virtual machines for enterprise simulation and skill development.</p>
+        <div class="project-tags">
+          <span class="project-tag">Hyper-V</span><span class="project-tag">VMware</span><span class="project-tag">Windows Server 2022</span><span class="project-tag">Active Directory</span><span class="project-tag">DNS</span><span class="project-tag">DHCP</span><span class="project-tag">Group Policy</span><span class="project-tag">Azure Integration</span><span class="project-tag">Microsoft 365</span><span class="project-tag">PowerShell Automation</span><span class="project-tag">ClamAV</span><span class="project-tag">YARA</span><span class="project-tag">VPN</span><span class="project-tag">Backup</span><span class="project-tag">Virtual Networking</span>
+        </div>
+        <ul class="achievements-list" style="margin-top: 1rem;">
+          <li>Simulated enterprise troubleshooting scenarios involving networking, virtualization, backup, and endpoint security.</li>
+          <li>Implemented PowerShell scripting for automation and system management tasks.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="recommendation" id="recommendation">
+  <div class="section-container">
+    <div class="section-header fade-in">
+      <h2>Recommendation</h2>
+      <div class="section-line"></div>
+      <p>Endorsed by industry leadership</p>
+    </div>
+    <div class="rec-card fade-in">
+      <div class="rec-quote">"</div>
+      <div class="rec-text">
+        I have worked closely with Ric Tuazon during the several years he had worked as service desk analyst under my direct supervision. Ric excelled in this role, exhibiting one of the highest levels of performance I have seen in an SD analyst during my tenure as a team leader for the same organization. Ric produces high volume of work while consistently maintaining high standards for quality and customer service.<br><br>
+        Ric is a "can do" guy, this attitude not only getting his tasks done but enables him to engage with other employees with positive energy and a smile. His upbeat personality allows him to interact effectively not only with his teammates but with clients as well.<br><br>
+        Proactive in anticipating rising operations issues, he takes initiative to go beyond the expected parameters or scope of his role.<br><br>
+        I volunteered to write this recommendation letter for Ric because I am very grateful for his contributions to our organization and very confident that he has the intelligence, work ethic and communications skills to add value wherever he works.
+      </div>
+      <div class="rec-author">
+        <div class="rec-avatar">FJ</div>
+        <div class="rec-info">
+          <h4>Fidel Javar Jr.</h4>
+          <p>Global Tower Service Manager</p>
+          <p class="rec-company"><i class="fas fa-building"></i> Atos IT Inc.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="experience" style="background: var(--bg); transition: background var(--transition-slow);">
+  <div class="section-container">
+    <div class="section-header fade-in">
+      <h2>Education & Personal Info</h2>
+      <div class="section-line"></div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      <div class="timeline-card fade-in" style="padding: 2rem;">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+          <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem;"><i class="fas fa-graduation-cap"></i></div>
+          <div><div style="font-weight: 700; color: var(--dark); font-size: 1.1rem; transition: color var(--transition-slow);">Trinity University of Asia</div><div style="color: var(--text-light); font-size: 0.9rem;">Quezon City, Philippines</div></div>
+        </div>
+        <p style="color: var(--text); transition: color var(--transition-slow);"><strong>Bachelor of Science in Hotel & Restaurant Management</strong></p>
+        <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;"><i class="fas fa-calendar" style="color: var(--accent); margin-right: 0.4rem;"></i>2000 – 2004</p>
+      </div>
+      <div class="timeline-card fade-in" style="padding: 2rem;">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+          <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem;"><i class="fas fa-globe"></i></div>
+          <div><div style="font-weight: 700; color: var(--dark); font-size: 1.1rem; transition: color var(--transition-slow);">Languages</div><div style="color: var(--text-light); font-size: 0.9rem;">Communication Proficiency</div></div>
+        </div>
+        <p style="color: var(--text); transition: color var(--transition-slow);"><strong>English</strong> – Expert</p>
+      </div>
+      <div class="timeline-card fade-in" style="padding: 2rem;">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+          <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem;"><i class="fas fa-heart"></i></div>
+          <div><div style="font-weight: 700; color: var(--dark); font-size: 1.1rem; transition: color var(--transition-slow);">Interests</div><div style="color: var(--text-light); font-size: 0.9rem;">Beyond the screen</div></div>
+        </div>
+        <div class="project-tags" style="margin: 0;">
+          <span class="project-tag">Technology</span><span class="project-tag">Home Lab</span><span class="project-tag">Cybersecurity</span><span class="project-tag">Bushcraft Camping</span><span class="project-tag">Reading</span><span class="project-tag">Motorcycling</span><span class="project-tag">Music</span><span class="project-tag">Cooking</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-name">Ricardo Tuazon Jr.</div>
+    <div class="footer-title">Technical Support Engineer | Systems Administrator</div>
+    <div class="footer-social">
+      <a href="mailto:ric.tuazon_17@yahoo.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="tel:+639158300993" title="Phone"><i class="fas fa-phone"></i></a>
+      <a href="https://www.linkedin.com/in/ricardo-t-7001a4152/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <p class="footer-copy">Marikina City, Philippines • +63 915 830 0993 • ric.tuazon_17@yahoo.com</p>
+    <p class="footer-copy" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 Ricardo Tuazon Jr. All rights reserved.</p>
+  </div>
+</footer>
+
+<a href="mailto:ric.tuazon_17@yahoo.com" class="fab" title="Contact Me"><i class="fas fa-paper-plane"></i></a>
+<button class="back-to-top" id="backToTop" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+// Scroll Progress Bar
+const scrollProgress = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (scrollTop / scrollHeight) * 100;
+  scrollProgress.style.width = scrolled + '%';
+});
+
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) { navbar.classList.add('scrolled'); }
+  else { navbar.classList.remove('scrolled'); }
+});
+
+// Back to top button
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 500) { backToTop.classList.add('visible'); }
+  else { backToTop.classList.remove('visible'); }
+});
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (window.scrollY >= sectionTop) { current = section.getAttribute('id'); }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) { link.classList.add('active'); }
+  });
+});
+
+// Fade in animation on scroll
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
+}, observerOptions);
+document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in').forEach(el => observer.observe(el));
+
+// Timeline items animation
+const timelineObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => { entry.target.classList.add('visible'); }, index * 150);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.timeline-item').forEach(el => timelineObserver.observe(el));
+
+// Animate skill bars on scroll
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const bar = entry.target.querySelector('.skill-bar-fill');
+      if (bar) {
+        const width = bar.getAttribute('data-width');
+        bar.style.width = width + '%';
+      }
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.skill-card').forEach(el => skillObserver.observe(el));
+
+// Animated counter for stats
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const target = parseInt(entry.target.getAttribute('data-target'));
+      const duration = 2000;
+      const start = performance.now();
+      const animate = (now) => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        entry.target.textContent = Math.floor(easeOut * target);
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-number[data-target]').forEach(el => counterObserver.observe(el));
+
+// Typewriter effect for subtitle
+const subtitleEl = document.getElementById('typewriterSubtitle');
+const subtitleText = "Technical Support Engineer | Systems Administrator | Service Desk III";
+let charIndex = 0;
+function typeWriter() {
+  if (charIndex < subtitleText.length) {
+    subtitleEl.textContent = subtitleText.substring(0, charIndex + 1);
+    charIndex++;
+    setTimeout(typeWriter, 50);
+  } else {
+    subtitleEl.style.borderRight = 'none';
+  }
+}
+setTimeout(typeWriter, 1000);
+
+// Dark mode toggle
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = themeToggle.querySelector('i');
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) { document.documentElement.setAttribute('data-theme', savedTheme); themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'; }
+themeToggle.addEventListener('click', () => {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  themeIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+});
+
+// Mobile menu
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileMenuClose = document.getElementById('mobileMenuClose');
+mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.add('active'); });
+mobileMenuClose.addEventListener('click', () => { mobileMenu.classList.remove('active'); });
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => { mobileMenu.classList.remove('active'); });
+});
+
+// Generate floating particles
+const particlesContainer = document.getElementById('particles');
+for (let i = 0; i < 25; i++) {
+  const particle = document.createElement('div');
+  particle.className = 'particle';
+  particle.style.left = Math.random() * 100 + '%';
+  particle.style.animationDelay = Math.random() * 15 + 's';
+  particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+  particle.style.opacity = Math.random() * 0.5 + 0.2;
+  particlesContainer.appendChild(particle);
+}
+
+// Keyboard shortcut for dark mode
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'd' && e.ctrlKey) { e.preventDefault(); themeToggle.click(); }
+});
+</script>
+</body>
+</html>
